@@ -9,7 +9,7 @@ export default async function ProductSection() {
 
     return (
       <>
-        <div className=" px-4 pb-80 sm:px-6 lg:px-24">
+        <div className=" px-4sm:px-6 lg:px-24">
           <div className="flex  justify-between items-center mb-5">
             <h2 className="text-xs lg:text-2xl font-bold text-gray-900">
               Brand New

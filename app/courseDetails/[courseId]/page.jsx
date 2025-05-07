@@ -5,20 +5,27 @@ import ProductInfo from "../../_components/productInfo";
 import CourseByCategory from "../../_components/courseByCategory";
 
 export const generateMetadata = async ({ params }) => {
-  const res = await getCourseById.getCourseById(params.courseId);
-  const courseInfo = res?.data?.data;
-  return {
-    title: {
-      default: courseInfo?.title,
-    },
-    description: courseInfo?.description?.[0]?.children?.[0]?.text,
-  };
+  try {
+    const { courseId } = await params;
+    const res = await getCourseById.getCourseById(courseId);
+    const courseInfo = res?.data?.data;
+    return {
+      title: {
+        default: courseInfo?.title,
+      },
+      description: courseInfo?.description?.[0]?.children?.[0]?.text,
+    };
+  } catch (error) {
+    return {
+      title: "Error Loading Course",
+      description: "Failed to load course details",
+    };
+  }
 };
 
 export default async function CourseDetails({ params }) {
-  const { courseId } = params;
-
   try {
+    const { courseId } = await params;
     const response = await getCourseById.getCourseById(courseId);
     const courseInfo = response?.data?.data;
 
