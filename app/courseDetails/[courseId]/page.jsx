@@ -1,6 +1,6 @@
 // app/course/[courseId]/page.jsx
 import getCourseById from "../../_utils/cousesApi";
-import BreadCrumb from "../../_components/breadcrumb";
+import BreadCrumb from "../../_components/breadCrumb";
 import ProductInfo from "../../_components/productInfo";
 import CourseByCategory from "../../_components/courseByCategory";
 
