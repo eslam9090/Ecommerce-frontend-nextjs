@@ -30,8 +30,8 @@ export const EmailTemplate = ({ body }) => (
         />
         <Text style={paragraph}>Hi {body.fullName},</Text>
         <Text style={paragraph}>
-          Thank you purchasing on Courses App. Click on Below download
-          button to download the all digital content
+          Thank you purchasing on Courses App. Click on Below download button to
+          download the all digital content
         </Text>
         <Section style={btnContainer}>
           <Button
