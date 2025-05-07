@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import CheckoutContent from "./_components/CheckoutContent";
+import CheckoutContent from "../_components/CheckoutContent";
 const Checkout = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
