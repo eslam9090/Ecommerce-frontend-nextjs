@@ -11,10 +11,9 @@ const url = process.env.NEXT_PUBLIC_API_URL;
 export const getAllCourses = async () => {
   try {
     const res = await fetch(`${url}/courses?populate=*`, {
-      cache: "no-store",
-      // next: {
-      //   revalidate: 60,
-      // },
+      next: {
+        revalidate: 60,
+      },
     });
     if (!res.ok) {
       throw new Error(`Fetch failed with status: ${res.status}`);
