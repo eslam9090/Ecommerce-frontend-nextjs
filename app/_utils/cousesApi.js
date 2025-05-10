@@ -27,7 +27,9 @@ export const getAllCourses = async () => {
 
 export const getCourseById = async (id) => {
   try {
-    const res = await fetch(`${url}/courses/${id}?populate=*`);
+    const res = await fetch(`${url}/courses/${id}?populate=*`, {
+      cache: "force-cache",
+    });
     if (!res.ok) {
       throw new Error(`Fetch failed with status: ${res.status}`);
     }
