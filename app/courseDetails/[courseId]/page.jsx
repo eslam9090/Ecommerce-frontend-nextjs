@@ -1,14 +1,19 @@
-// app/course/[courseId]/page.jsx
-import getCourseById from "../../_utils/cousesApi";
+import { getAllCourses, getCourseById } from "../../_utils/cousesApi";
 import BreadCrumb from "../../_components/breadCrumb";
 import ProductInfo from "../../_components/productInfo";
 import CourseByCategory from "../../_components/courseByCategory";
 
+export const generateStaticParams = async () => {
+  const allCourses = await getAllCourses();
+  return allCourses?.map((course) => ({
+    courseId: course.documentId.toString(),
+  }));
+};
+
 export const generateMetadata = async ({ params }) => {
   try {
     const { courseId } = await params;
-    const res = await getCourseById.getCourseById(courseId);
-    const courseInfo = res?.data?.data;
+    const courseInfo = await getCourseById(courseId);
     return {
       title: {
         default: courseInfo?.title,
@@ -22,17 +27,15 @@ export const generateMetadata = async ({ params }) => {
     };
   }
 };
-
+// SYNC comunity
+// Entreprenelle hub
+// yalla markting
+// EGY Marketers & Advertisers
 export default async function CourseDetails({ params }) {
   try {
-    const { courseId } = await params;
-    const response = await getCourseById.getCourseById(courseId);
-    const courseInfo = response?.data?.data;
-
-    if (!courseInfo) {
-      return <div className="text-center py-10"> Details Not Available</div>;
-    }
-
+    const { courseId } = params;
+    const courseInfo = await getCourseById(courseId);
+    console.log("This is SSG Rendering from CourseDetails page...");
     return (
       <div>
         <BreadCrumb />

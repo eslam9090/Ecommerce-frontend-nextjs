@@ -9,7 +9,6 @@ import CartInfo from "../_components/cartInfo";
 const CartItems = () => {
   const { user } = useUser();
 
-  const { cartItems } = useSelector((state) => state.cart);
   useEffect(() => {
     if (user) {
       handelCartItems();
@@ -33,7 +32,7 @@ const CartItems = () => {
 
   return (
     <div>
-      <CartInfo cartItems={cartItems} />
+      <CartInfo />
     </div>
   );
 };

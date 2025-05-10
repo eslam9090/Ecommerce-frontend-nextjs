@@ -7,10 +7,10 @@ import { getTotal } from "../_cartSlices/cartSlice";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
-const CartInfo = ({ cartItems }) => {
+const CartInfo = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { totalPrice } = useSelector((state) => state.cart);
+  const { totalPrice, cartItems } = useSelector((state) => state.cart);
 
   useEffect(() => {
     dispatch(getTotal());
@@ -187,7 +187,9 @@ const CartInfo = ({ cartItems }) => {
 
                   <div className="flex justify-end">
                     <button
-                      onClick={() => router.push(`/checkout?amount=${totalPrice}`)}
+                      onClick={() =>
+                        router.push(`/checkout?amount=${totalPrice}`)
+                      }
                       className="block cursor-pointer rounded-sm bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
                     >
                       Checkout
