@@ -1,4 +1,4 @@
-export const revalidate = 60;
+export const dynamic = "force-dynamic"; // This will make the page dynamic and not static
 import Banner from "./_components/Banner";
 import ProductSection from "./_components/productSection";
 import { getAllCourses } from "./_utils/cousesApi";
