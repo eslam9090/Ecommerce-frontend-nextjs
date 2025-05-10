@@ -14,7 +14,7 @@ const ProductInfo = ({ courseInfo }) => {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const handleAddToCart = async () => {
+  const handleAddToCart = () => {
     if (!user) {
       router.push("/sign-in");
     } else {

@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import { getAllCourses, getCourseById } from "../../_utils/cousesApi";
 import BreadCrumb from "../../_components/breadCrumb";
 import ProductInfo from "../../_components/productInfo";
