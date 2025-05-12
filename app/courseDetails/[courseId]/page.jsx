@@ -28,15 +28,10 @@ export const generateMetadata = async ({ params }) => {
     };
   }
 };
-// SYNC comunity
-// Entreprenelle hub
-// yalla markting
-// EGY Marketers & Advertisers
 export default async function CourseDetails({ params }) {
   try {
     const { courseId } = params;
     const courseInfo = await getCourseById(courseId);
-    console.log("This is SSG Rendering from CourseDetails page...");
     return (
       <div>
         <BreadCrumb />

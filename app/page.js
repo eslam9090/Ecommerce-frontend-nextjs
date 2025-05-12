@@ -4,9 +4,7 @@ import ProductSection from "./_components/productSection";
 import { getAllCourses } from "./_utils/cousesApi";
 export default async function Home() {
   const data = await getAllCourses();
-  console.log(
-    "Test Running on the server with revalidate=60 from home page..."
-  );
+ 
   return (
     <>
       {data.length === 0 ? (
